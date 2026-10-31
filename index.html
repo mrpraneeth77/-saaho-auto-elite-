@@ -1,0 +1,297 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080D18">
+  <title>Saaho Auto Intel | Market Intelligence</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #080D18;
+      color: #F4F7FC;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 7%;
+      border-bottom: 1px solid #253047;
+    }
+
+    .logo {
+      font-size: 23px;
+      font-weight: bold;
+      color: #70B7FF;
+    }
+
+    .logo span {
+      color: white;
+    }
+
+    nav a {
+      color: #C4CCDA;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 14px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 90px 20px 65px;
+    }
+
+    .tag {
+      color: #70B7FF;
+      letter-spacing: 3px;
+      font-size: 12px;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(36px, 7vw, 64px);
+      margin-bottom: 20px;
+    }
+
+    h1 span {
+      color: #70B7FF;
+    }
+
+    .hero p {
+      color: #AAB5C7;
+      max-width: 650px;
+      margin: auto;
+      line-height: 1.8;
+    }
+
+    .buttons {
+      margin-top: 30px;
+    }
+
+    button {
+      border: none;
+      padding: 14px 24px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      margin: 5px;
+    }
+
+    .primary {
+      background: #398CE5;
+      color: white;
+    }
+
+    .secondary {
+      background: #19253A;
+      color: white;
+      border: 1px solid #34435C;
+    }
+
+    .container {
+      padding: 35px 7% 70px;
+    }
+
+    .section-title {
+      font-size: 25px;
+      margin-bottom: 22px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: #111C2D;
+      border: 1px solid #26364D;
+      padding: 25px;
+      border-radius: 14px;
+    }
+
+    .card h3 {
+      color: #A9BBD2;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .card h2 {
+      font-size: 27px;
+      color: #70B7FF;
+    }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 35px;
+    }
+
+    .category {
+      background: linear-gradient(135deg, #142640, #101827);
+      padding: 35px;
+      border-radius: 15px;
+      border: 1px solid #30435E;
+    }
+
+    .category p {
+      color: #AAB5C7;
+      margin-top: 12px;
+      line-height: 1.6;
+    }
+
+    .category button {
+      margin: 20px 0 0;
+    }
+
+    footer {
+      border-top: 1px solid #26364D;
+      padding: 25px;
+      text-align: center;
+      color: #8998AC;
+      font-size: 13px;
+    }
+
+    @media(max-width: 750px) {
+      header {
+        padding: 18px;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 65px;
+      }
+
+      .container {
+        padding: 25px 18px 50px;
+      }
+
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .categories {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media(max-width: 380px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">SAAHO <span>AUTO INTEL</span></div>
+  <nav>
+    <a href="#dashboard">Dashboard</a>
+    <a href="#vehicles">Vehicles</a>
+    <a href="#about">About</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="tag">INDIA AUTOMOTIVE INTELLIGENCE</div>
+  <h1>Understand the <span>Automobile Market.</span></h1>
+  <p>
+    Discover manufacturer market share, vehicle registration
+    trends, competitor performance and business opportunities
+    across India.
+  </p>
+  <div class="buttons">
+    <button class="primary" onclick="document.getElementById('vehicles').scrollIntoView({behavior:'smooth'})">
+      Explore Dashboard
+    </button>
+    <button class="secondary" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+      Learn More
+    </button>
+  </div>
+</section>
+
+<main class="container" id="dashboard">
+  <h2 class="section-title">Market Overview</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Total Registrations</h3>
+      <h2>--</h2>
+    </div>
+    <div class="card">
+      <h3>Market Share</h3>
+      <h2>--</h2>
+    </div>
+    <div class="card">
+      <h3>Manufacturers</h3>
+      <h2>--</h2>
+    </div>
+    <div class="card">
+      <h3>States Covered</h3>
+      <h2>36</h2>
+    </div>
+  </div>
+
+  <div id="vehicles">
+    <h2 class="section-title" style="margin-top:50px">
+      Vehicle Market Segments
+    </h2>
+
+    <div class="categories">
+      <div class="category">
+        <h2>Passenger Vehicles</h2>
+        <p>
+          Cars, SUVs, MUVs and passenger vehicle
+          registration market intelligence.
+        </p>
+        <button class="primary" onclick="alert('Passenger Vehicle Dashboard coming soon!')">
+          Explore Passenger Vehicles
+        </button>
+      </div>
+
+      <div class="category">
+        <h2>Commercial Vehicles</h2>
+        <p>
+          Trucks, buses, LCVs, HCVs and commercial
+          vehicle market intelligence.
+        </p>
+        <button class="primary" onclick="alert('Commercial Vehicle Dashboard coming soon!')">
+          Explore Commercial Vehicles
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <section id="about" style="margin-top:55px">
+    <h2 class="section-title">About Saaho Auto Intel</h2>
+    <p style="color:#AAB5C7;line-height:1.8">
+      Saaho Auto Intel is an automobile market intelligence
+      platform designed to help dealers and automobile companies
+      analyse registration data, understand competitors and
+      discover market opportunities across India.
+    </p>
+  </section>
+</main>
+
+<footer>
+  © 2026 Saaho Auto Intel. Automotive Market Intelligence Platform.
+  <br><br>
+  Registration statistics will appear after connecting verified data.
+</footer>
+
+</body>
+</html>
