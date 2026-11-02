@@ -3,337 +3,260 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#080b16">
-<title>Saaho Auto Intel</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAAHO AUTO ÉLITE | Beyond Luxury</title>
+<meta name="description" content="Discover SAAHO AUTO ÉLITE — premium automotive design, innovation and performance.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap');
-:root{
---bg:#080b16;--glass:rgba(255,255,255,.065);
---line:rgba(255,255,255,.12);--text:#f4f6ff;
---muted:#a2acc3;--accent:#6b8cff;--gold:#d9b66e;
+:root {
+ --bg:#090909;--panel:#121212;--gold:#c7a66a;
+ --gold2:#ead6ad;--white:#f5f1e9;--muted:#a6a29a;
+ --line:rgba(199,166,106,.25);
+ --serif:'Cormorant Garamond',Georgia,serif;
+ --sans:'Manrope',Arial,sans-serif;
 }
-*{box-sizing:border-box}
-body{margin:0;background:radial-gradient(ellipse at 15% 0%,#182858 0%,transparent 38%),radial-gradient(ellipse at 90% 30%,#28174c 0%,transparent 35%),var(--bg);color:var(--text);font-family:Inter,Arial,sans-serif;min-height:100vh}
-header{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:19px 5%;border-bottom:1px solid var(--line);background:rgba(8,11,22,.65);backdrop-filter:blur(20px);position:sticky;top:0;z-index:10}
-.logo{font-family:Outfit,sans-serif;font-size:22px;font-weight:800;letter-spacing:1px}
-.logo span{color:#83a4ff}
-select,input,button{font:inherit;color:var(--text);background:rgba(255,255,255,.08);border:1px solid var(--line);padding:12px;border-radius:11px}
-button{cursor:pointer;transition:.2s}
-button:hover{transform:translateY(-2px);background:rgba(107,140,255,.3)}
-main{max-width:1200px;margin:auto;padding:25px 17px}
-.glass{background:var(--glass);border:1px solid var(--line);border-radius:20px;padding:20px;backdrop-filter:blur(18px);box-shadow:0 15px 45px rgba(0,0,0,.16)}
-.hero{padding:28px;margin-bottom:18px;background:linear-gradient(120deg,rgba(54,92,180,.25),rgba(122,70,170,.12));}
-h1,h2,h3{font-family:Outfit,sans-serif}
-h1{font-size:clamp(25px,5vw,38px);margin:0 0 8px}
-h2{font-size:23px;margin-top:0}
-p{color:var(--muted);line-height:1.6}
-.tabs,.actions,.filters{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}
-.tabs button{flex:1;min-width:130px}
-.active{background:linear-gradient(120deg,#547fff,#895de0)!important;border-color:transparent}
-.luxury .active{background:linear-gradient(120deg,#96733a,#d9b66e)!important;color:#17120a}
-.luxury .hero{background:linear-gradient(120deg,rgba(174,132,54,.22),rgba(30,25,19,.35))}
-.luxury .logo span{color:var(--gold)}
-.luxury .metric strong,.luxury .bar-fill{color:var(--gold)}
-.metric-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin:17px 0}
-.metric small{color:var(--muted);font-size:12px}
-.metric strong{display:block;font-family:Outfit;font-size:27px;margin-top:12px}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin:17px 0}
-.bar-row{margin:16px 0}
-.bar-label{display:flex;justify-content:space-between;font-size:13px;gap:8px}
-.bar{height:9px;background:rgba(255,255,255,.1);border-radius:20px;margin-top:8px;overflow:hidden}
-.bar-fill{height:100%;background:linear-gradient(90deg,#578aff,#a17bff);border-radius:20px}
-.luxury .bar-fill{background:linear-gradient(90deg,#92703a,#e5c27c)}
-table{width:100%;border-collapse:collapse;min-width:580px;font-size:13px}
-td,th{text-align:left;padding:13px 10px;border-bottom:1px solid var(--line)}
-th{color:#9fb7ff}
-.luxury th{color:var(--gold)}
-.table-wrap{overflow-x:auto}
-.note{font-size:12px;color:var(--muted)}
-.filters>*{flex:1;min-width:130px}
-footer{text-align:center;padding:25px;color:var(--muted);font-size:12px}
-#file{display:none}
-@media(max-width:750px){.metric-grid{grid-template-columns:1fr 1fr}.grid2{grid-template-columns:1fr}header{padding:15px}.metric strong{font-size:23px}}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:var(--sans);line-height:1.6}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+.wrap{width:min(1180px,91%);margin:auto}
+.eyebrow{color:var(--gold);font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;font-weight:700}
+.gold{color:var(--gold)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:14px 22px;border:1px solid var(--gold);color:var(--gold2);background:transparent;text-transform:uppercase;letter-spacing:.13em;font-size:.68rem;font-weight:800;transition:.25s}
+.btn:hover,.btn.fill{background:var(--gold);color:#090909}
+.topline{height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+header{position:sticky;top:0;z-index:20;background:rgba(8,8,8,.9);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.08)}
+.nav{height:82px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;flex-direction:column;line-height:1}
+.brand b{font-family:var(--serif);font-size:1.9rem;letter-spacing:.22em;color:var(--gold2);font-weight:600}
+.brand span{font-size:.55rem;letter-spacing:.39em;margin-top:7px;color:#ddd;text-align:center}
+.navlinks{display:flex;gap:27px;align-items:center}
+.navlinks a{font-size:.68rem;color:#d1ccc2;letter-spacing:.12em;text-transform:uppercase}
+.navlinks a:hover{color:var(--gold)}
+.menu{display:none;background:none;border:1px solid var(--line);color:var(--gold);padding:9px 12px}
+.hero{min-height:680px;display:flex;align-items:center;position:relative;overflow:hidden;background:linear-gradient(90deg,rgba(5,5,5,.96),rgba(5,5,5,.75) 45%,rgba(5,5,5,.1)),url('https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=2000&q=85') center/cover}
+.hero:after{content:"";position:absolute;inset:auto 0 0;height:170px;background:linear-gradient(transparent,var(--bg))}
+.hero-content{position:relative;z-index:1;padding:90px 0;max-width:650px}
+.hero h1{font:500 clamp(3.5rem,8vw,7rem)/.9 var(--serif);margin:22px 0}
+.hero h1 span{color:var(--gold2);display:block}
+.hero p{max-width:470px;color:#d0cbc1;font-size:.92rem;margin:25px 0 32px}
+.actions{display:flex;gap:13px;flex-wrap:wrap}
+.hero-note{position:absolute;z-index:2;right:5%;bottom:85px;color:#d6c6a6;font-size:.62rem;letter-spacing:.22em;writing-mode:vertical-rl}
+.intro{padding:100px 0 85px;text-align:center}
+.intro h2,.section-head h2{font:500 clamp(2.5rem,5vw,4.2rem)/1.05 var(--serif);margin:15px 0}
+.intro p{color:var(--muted);max-width:720px;margin:auto;font-size:.9rem}
+.section{padding:78px 0}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:34px}
+.section-head p{max-width:390px;color:var(--muted);font-size:.82rem}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.model{background:linear-gradient(145deg,#171717,#0e0e0e);border:1px solid rgba(255,255,255,.09);overflow:hidden;transition:.3s}
+.model:hover{transform:translateY(-5px);border-color:var(--line)}
+.model-img{height:220px;background:#151515;overflow:hidden}
+.model-img img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.75);transition:.5s}
+.model:hover img{transform:scale(1.05);filter:saturate(1)}
+.model-body{padding:22px}
+.model-type{font-size:.62rem;color:var(--gold);letter-spacing:.2em;text-transform:uppercase}
+.model h3{font:500 2rem var(--serif);margin:5px 0}
+.model p{font-size:.78rem;color:var(--muted);min-height:50px}
+.model-foot{display:flex;justify-content:space-between;border-top:1px solid rgba(255,255,255,.08);margin-top:18px;padding-top:15px;color:#d8c9ad;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase}
+.arrow{font-size:1.2rem;color:var(--gold)}
+.luxury{background:linear-gradient(120deg,#15120d,#090909 55%,#1b160e);border-block:1px solid var(--line);padding:95px 0}
+.lux-wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:55px;align-items:center}
+.lux-img{height:440px;position:relative}
+.lux-img img{width:100%;height:100%;object-fit:cover;filter:brightness(.78)}
+.lux-img:after{content:"";position:absolute;inset:15px -15px -15px 15px;border:1px solid var(--gold);pointer-events:none}
+.lux-copy h2{font:500 clamp(3rem,6vw,5rem)/.95 var(--serif);margin:18px 0}
+.lux-copy p{color:#bcb5a8;font-size:.86rem;margin:20px 0 28px;max-width:470px}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:20px}
+.pillar{background:#101010;padding:30px 25px}
+.pillar strong{font:500 1.8rem var(--serif);color:var(--gold2)}
+.pillar h3{font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;margin:8px 0}
+.pillar p{font-size:.73rem;color:var(--muted)}
+.vision{padding:100px 0;text-align:center;background:radial-gradient(ellipse at center,rgba(199,166,106,.1),transparent 60%)}
+.vision h2{font:500 clamp(2.7rem,6vw,5rem) var(--serif);margin:15px 0}
+.vision p{max-width:650px;margin:0 auto 28px;color:var(--muted);font-size:.86rem}
+.contact{padding:80px 0;background:#101010;border-top:1px solid var(--line)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px}
+.contact h2{font:500 3.3rem var(--serif);margin:12px 0}
+.contact p{color:var(--muted);font-size:.85rem;max-width:430px}
+.form{display:grid;gap:12px}
+.form input,.form select,.form textarea{width:100%;padding:14px;background:#090909;border:1px solid rgba(255,255,255,.14);color:var(--white);font:inherit;font-size:.8rem}
+.form textarea{min-height:105px;resize:vertical}
+.form small{color:var(--muted);font-size:.68rem}
+footer{padding:35px 0;border-top:1px solid rgba(255,255,255,.08);background:#080808}
+.foot{display:flex;justify-content:space-between;gap:20px;align-items:center}
+.foot p{font-size:.68rem;color:#817c73}
+.foot .brand b{font-size:1.4rem}
+.notice{font-size:.67rem;color:#928b80;margin-top:16px}
+@media(max-width:800px){
+ .nav{height:72px}.menu{display:block}
+ .navlinks{display:none;position:absolute;top:72px;left:0;right:0;background:#0c0c0c;padding:20px 5%;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start}
+ .navlinks.open{display:flex}
+ .hero{min-height:620px;background-position:58% center}
+ .hero-content{padding:75px 0}.hero-note{display:none}
+ .section-head{display:block}.section-head p{margin-top:12px}
+ .grid{grid-template-columns:repeat(2,1fr)}
+ .lux-wrap{grid-template-columns:1fr;gap:35px}
+ .lux-img{height:310px;margin-right:12px}
+ .contact-grid{grid-template-columns:1fr}
+ .pillars{grid-template-columns:1fr}
+ .foot{align-items:flex-start;flex-direction:column}
+}
+@media(max-width:520px){
+ .grid{grid-template-columns:1fr}
+ .hero h1{font-size:3.6rem}
+ .hero p{font-size:.83rem}
+ .intro{padding:75px 0 55px}
+ .section{padding:58px 0}
+ .luxury{padding:65px 0}
+ .lux-img{height:250px}
+ .contact h2{font-size:2.7rem}
+ .actions .btn{width:100%}
+}
 </style>
 </head>
 <body>
+<div class="topline"></div>
 <header>
- <div class="logo">SAAHO <span>AUTO INTEL</span></div>
- <select id="lang" aria-label="Language">
-  <option value="en">Indian English</option>
-  <option value="te">తెలుగు</option>
-  <option value="hi">हिन्दी</option>
- </select>
-</header>
-<main id="app">
- <section class="glass hero">
-  <h1 data-t="title">Automobile Market Intelligence</h1>
-  <p data-t="intro">Explore India's automobile registration market, brands and trends.</p>
-  <div class="actions">
-   <button onclick="loadDemo()" data-t="demo">Load Demo Data</button>
-   <button onclick="document.getElementById('file').click()" data-t="upload">Upload CSV</button>
-   <input id="file" type="file" accept=".csv,text/csv">
-   <button onclick="downloadSample()" data-t="sample">Download Sample CSV</button>
-  </div>
- </section>
-
- <div class="tabs">
-  <button id="allTab" class="active" onclick="setMode('all')" data-t="allcars">All Cars Dashboard</button>
-  <button id="luxTab" onclick="setMode('lux')" data-t="luxcars">Luxury Cars Dashboard</button>
+ <div class="wrap nav">
+  <a class="brand" href="#home"><b>SAAHO</b><span>AUTO ÉLITE</span></a>
+  <button class="menu" id="menuBtn">MENU ☰</button>
+  <nav class="navlinks" id="navLinks">
+   <a href="#vision">Our vision</a><a href="#collection">Collection</a>
+   <a href="#elite">Élite</a><a href="#innovation">Innovation</a><a href="#contact">Contact</a>
+  </nav>
  </div>
-
- <section class="glass">
-  <h2 id="dashTitle">All Cars Dashboard</h2>
-  <p id="dashDesc">Market overview across all car categories.</p>
-  <div class="filters">
-   <select id="companyFilter" aria-label="Company filter"><option value="all">All companies</option></select>
-   <select id="stateFilter" aria-label="State filter"><option value="all">All states</option></select>
-   <select id="segmentFilter" aria-label="Segment filter"><option value="all">All segments</option></select>
+</header>
+<main>
+<section class="hero" id="home">
+ <div class="wrap hero-content">
+  <div class="eyebrow">A new vision of automotive excellence</div>
+  <h1>Beyond <span>the ordinary.</span></h1>
+  <p>Introducing the vision of SAAHO AUTO ÉLITE — where timeless design, purposeful innovation and exhilarating mobility come together.</p>
+  <div class="actions">
+   <a class="btn fill" href="#collection">Explore the collection ↗</a>
+   <a class="btn" href="#vision">Discover our vision</a>
   </div>
- </section>
+ </div>
+ <div class="hero-note">Crafted for what comes next · SAAHO</div>
+</section>
 
- <section class="metric-grid">
-  <div class="glass metric"><small data-t="total">Total registrations</small><strong id="total">0</strong></div>
-  <div class="glass metric"><small data-t="brands">Brands</small><strong id="brands">0</strong></div>
-  <div class="glass metric"><small data-t="states">States</small><strong id="states">0</strong></div>
-  <div class="glass metric"><small data-t="models">Models</small><strong id="models">0</strong></div>
- </section>
+<section class="intro wrap" id="vision">
+ <div class="eyebrow">The marque</div>
+ <h2>A statement of <span class="gold">individuality.</span></h2>
+ <p>SAAHO AUTO ÉLITE is an independent automotive brand concept built around a simple ambition: to make every journey feel extraordinary. Our vision spans accessible mobility, electric innovation, performance and elevated luxury.</p>
+</section>
 
- <section class="grid2">
-  <div class="glass">
-   <h2 data-t="share">Brand Market Share</h2>
-   <div id="brandChart"></div>
+<section class="section wrap" id="collection">
+ <div class="section-head">
+  <div><div class="eyebrow">The collection · concept range</div><h2>Made for every <span class="gold">journey.</span></h2></div>
+  <p>Explore our planned vehicle families. These are concept directions, not production vehicles currently on sale.</p>
+ </div>
+ <div class="grid">
+  <article class="model">
+   <div class="model-img"><img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?auto=format&fit=crop&w=900&q=80" alt="Compact car" loading="lazy"></div>
+   <div class="model-body"><div class="model-type">Urban · Hatchback</div><h3>SAAHO AURA</h3><p>Compact proportions, intelligent space and a confident city presence.</p><div class="model-foot"><span>Urban collection</span><span class="arrow">↗</span></div></div>
+  </article>
+  <article class="model">
+   <div class="model-img"><img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=900&q=80" alt="Premium sedan" loading="lazy"></div>
+   <div class="model-body"><div class="model-type">Executive · Sedan</div><h3>SAAHO VÉRA</h3><p>Elegant lines and a calm, considered cabin for refined travel.</p><div class="model-foot"><span>Executive collection</span><span class="arrow">↗</span></div></div>
+  </article>
+  <article class="model">
+   <div class="model-img"><img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=900&q=80" alt="Premium SUV" loading="lazy"></div>
+   <div class="model-body"><div class="model-type">Adventure · SUV</div><h3>SAAHO XÉON</h3><p>Strong proportions, versatile capability and commanding comfort.</p><div class="model-foot"><span>SUV collection</span><span class="arrow">↗</span></div></div>
+  </article>
+  <article class="model">
+   <div class="model-img"><img src="https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=900&q=80" alt="Performance car" loading="lazy"></div>
+   <div class="model-body"><div class="model-type">Performance · Sports</div><h3>SAAHO GT</h3><p>A bold expression of dynamic design and driver-focused ambition.</p><div class="model-foot"><span>Performance collection</span><span class="arrow">↗</span></div></div>
+  </article>
+  <article class="model">
+   <div class="model-img"><img src="https://images.unsplash.com/photo-1617469767053-d3b523a0b982?auto=format&fit=crop&w=900&q=80" alt="Multi purpose vehicle" loading="lazy"></div>
+   <div class="model-body"><div class="model-type">Grand travel · MUV</div><h3>SAAHO M7</h3><p>Room for everyone, with comfort and thoughtful practicality.</p><div class="model-foot"><span>Grand collection</span><span class="arrow">↗</span></div></div>
+  </article>
+  <article class="model">
+   <div class="model-img"><img src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&w=900&q=80" alt="Electric vehicle" loading="lazy"></div>
+   <div class="model-body"><div class="model-type">Electric · EV</div><h3>SAAHO ELYS</h3><p>Our electric vision: quiet confidence, connected technology and cleaner mobility.</p><div class="model-foot"><span>Electric collection</span><span class="arrow">↗</span></div></div>
+  </article>
+ </div>
+ <p class="notice">Concept showcase only. Vehicle specifications, performance, prices and availability are not yet confirmed.</p>
+</section>
+
+<section class="luxury" id="elite">
+ <div class="wrap lux-wrap">
+  <div class="lux-img"><img src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=1200&q=85" alt="Luxury automobile detail" loading="lazy"></div>
+  <div class="lux-copy">
+   <div class="eyebrow">The highest expression</div>
+   <h2>Enter the world of <span class="gold">Élite.</span></h2>
+   <p>SAAHO ÉLITE is envisioned as our distinguished luxury collection — a world of exceptional craftsmanship, serene comfort, advanced technology and personal expression.</p>
+   <a class="btn" href="#contact">Register your interest ↗</a>
   </div>
-  <div class="glass">
-   <h2 data-t="segment">Vehicle Segment Breakdown</h2>
-   <div id="segmentChart"></div>
-  </div>
- </section>
+ </div>
+</section>
 
- <section class="glass">
-  <h2 data-t="monthly">Monthly Registration Trend</h2>
-  <div id="monthlyChart"></div>
- </section>
+<section class="section wrap" id="innovation">
+ <div class="section-head">
+  <div><div class="eyebrow">Our philosophy</div><h2>Designed with <span class="gold">purpose.</span></h2></div>
+  <p>Our ambition is to bring together thoughtful engineering, responsible innovation and design that stands apart.</p>
+ </div>
+ <div class="pillars">
+  <div class="pillar"><strong>01</strong><h3>Design integrity</h3><p>Distinctive forms, considered details and a recognisable SAAHO identity.</p></div>
+  <div class="pillar"><strong>02</strong><h3>Future mobility</h3><p>Exploring electric platforms, connected experiences and efficient mobility.</p></div>
+  <div class="pillar"><strong>03</strong><h3>Human comfort</h3><p>Technology and craftsmanship shaped around the people inside.</p></div>
+ </div>
+</section>
 
- <section class="glass" style="margin-top:17px">
-  <h2 data-t="details">Vehicle Registration Details</h2>
-  <div class="table-wrap">
-   <table>
-    <thead><tr>
-     <th data-t="brand">Brand</th><th data-t="model">Model</th>
-     <th data-t="segmentName">Segment</th><th data-t="registrations">Registrations</th>
-     <th data-t="stateName">State</th><th data-t="date">Date</th>
-    </tr></thead>
-    <tbody id="rows"></tbody>
-   </table>
-  </div>
-  <p id="message" class="note">Load demo data or upload your CSV file to begin.</p>
- </section>
+<section class="vision">
+ <div class="wrap">
+  <div class="eyebrow">SAAHO AUTO ÉLITE</div>
+  <h2>Beyond luxury.<br><span class="gold">Beyond limits.</span></h2>
+  <p>A bold vision begins with a first step. Join us as we shape the future story of SAAHO.</p>
+  <a class="btn fill" href="#contact">Connect with us</a>
+ </div>
+</section>
+
+<section class="contact" id="contact">
+ <div class="wrap contact-grid">
+  <div><div class="eyebrow">Begin the conversation</div><h2>Stay close to the <span class="gold">journey.</span></h2><p>For concept enquiries, collaborations or future updates, send us a message. This demo form opens your email app. Connect a secure form service before public business use.</p></div>
+  <form class="form" id="contactForm">
+   <input id="name" placeholder="Your name" required>
+   <input id="email" type="email" placeholder="Email address" required>
+   <select id="interest"><option>General enquiry</option><option>Vehicle concepts</option><option>Luxury collection</option><option>Business collaboration</option><option>Media enquiry</option></select>
+   <textarea id="message" placeholder="Your message" required></textarea>
+   <button class="btn fill" type="submit">Prepare enquiry ↗</button>
+   <small id="formNote">No information is stored by this demo website.</small>
+  </form>
+ </div>
+</section>
 </main>
-<footer>Saaho Auto Intel · India Automobile Market Intelligence</footer>
-
+<footer>
+ <div class="wrap foot">
+  <a class="brand" href="#home"><b>SAAHO</b><span>AUTO ÉLITE</span></a>
+  <p>© <span id="year"></span> SAAHO AUTO ÉLITE · Brand concept showcase.</p>
+  <p>BEYOND LUXURY. BEYOND LIMITS.</p>
+ </div>
+</footer>
 <script>
-const T={
-en:{
-title:"Automobile Market Intelligence",intro:"Explore India's automobile registration market, brands and trends.",
-demo:"Load Demo Data",upload:"Upload CSV",sample:"Download Sample CSV",
-allcars:"All Cars Dashboard",luxcars:"Luxury Cars Dashboard",
-total:"Total registrations",brands:"Brands",states:"States",models:"Models",
-share:"Brand Market Share",segment:"Vehicle Segment Breakdown",
-monthly:"Monthly Registration Trend",details:"Vehicle Registration Details",
-brand:"Brand",model:"Model",segmentName:"Segment",registrations:"Registrations",stateName:"State",date:"Date",
-all:"All",allCompanies:"All companies",allStates:"All states",allSegments:"All segments",
-allTitle:"All Cars Dashboard",luxTitle:"Luxury Cars Dashboard",
-allDesc:"Market overview across all car categories.",luxDesc:"Premium and luxury automobile market overview.",
-empty:"No data available. Load demo data or upload a CSV file.",
-demoNote:"Demo figures are illustrative only and are not official VAHAN statistics.",
-uploadNote:"Uploaded CSV data. Figures depend on the data supplied.",
-luxOnly:"Luxury segment only."
-},
-te:{
-title:"ఆటోమొబైల్ మార్కెట్ సమాచారం",intro:"భారతదేశ వాహన రిజిస్ట్రేషన్లు, బ్రాండ్లు మరియు ట్రెండ్స్ తెలుసుకోండి.",
-demo:"డెమో డేటా లోడ్ చేయి",upload:"CSV అప్‌లోడ్",sample:"నమూనా CSV డౌన్‌లోడ్",
-allcars:"అన్ని కార్ల డాష్‌బోర్డ్",luxcars:"లగ్జరీ కార్ల డాష్‌బోర్డ్",
-total:"మొత్తం రిజిస్ట్రేషన్లు",brands:"బ్రాండ్లు",states:"రాష్ట్రాలు",models:"మోడళ్లు",
-share:"బ్రాండ్ మార్కెట్ వాటా",segment:"వాహన విభాగాల వివరాలు",
-monthly:"నెలవారీ రిజిస్ట్రేషన్లు",details:"వాహన రిజిస్ట్రేషన్ వివరాలు",
-brand:"బ్రాండ్",model:"మోడల్",segmentName:"విభాగం",registrations:"రిజిస్ట్రేషన్లు",stateName:"రాష్ట్రం",date:"తేదీ",
-all:"అన్ని",allCompanies:"అన్ని కంపెనీలు",allStates:"అన్ని రాష్ట్రాలు",allSegments:"అన్ని విభాగాలు",
-allTitle:"అన్ని కార్ల డాష్‌బోర్డ్",luxTitle:"లగ్జరీ కార్ల డాష్‌బోర్డ్",
-allDesc:"అన్ని కార్ల విభాగాల మార్కెట్ సమాచారం.",luxDesc:"ప్రీమియం మరియు లగ్జరీ కార్ల మార్కెట్ సమాచారం.",
-empty:"డేటా లేదు. డెమో డేటా లోడ్ చేయండి లేదా CSV అప్‌లోడ్ చేయండి.",
-demoNote:"ఇవి నమూనా గణాంకాలు మాత్రమే; అధికారిక VAHAN గణాంకాలు కావు.",
-uploadNote:"మీరు అప్‌లోడ్ చేసిన CSV డేటా.",luxOnly:"లగ్జరీ విభాగం మాత్రమే."
-},
-hi:{
-title:"ऑटोमोबाइल मार्केट इंटेलिजेंस",intro:"भारत के वाहन पंजीकरण, ब्रांड और बाजार के रुझान देखें।",
-demo:"डेमो डेटा लोड करें",upload:"CSV अपलोड करें",sample:"नमूना CSV डाउनलोड करें",
-allcars:"सभी कारों का डैशबोर्ड",luxcars:"लक्जरी कारों का डैशबोर्ड",
-total:"कुल पंजीकरण",brands:"ब्रांड",states:"राज्य",models:"मॉडल",
-share:"ब्रांड बाजार हिस्सेदारी",segment:"वाहन श्रेणी विवरण",
-monthly:"मासिक पंजीकरण रुझान",details:"वाहन पंजीकरण विवरण",
-brand:"ब्रांड",model:"मॉडल",segmentName:"श्रेणी",registrations:"पंजीकरण",stateName:"राज्य",date:"तारीख",
-all:"सभी",allCompanies:"सभी कंपनियाँ",allStates:"सभी राज्य",allSegments:"सभी श्रेणियाँ",
-allTitle:"सभी कारों का डैशबोर्ड",luxTitle:"लक्जरी कारों का डैशबोर्ड",
-allDesc:"सभी कार श्रेणियों का बाजार विवरण।",luxDesc:"प्रीमियम और लक्जरी कार बाजार का विवरण।",
-empty:"डेटा उपलब्ध नहीं है। डेमो डेटा लोड करें या CSV अपलोड करें।",
-demoNote:"ये केवल डेमो आँकड़े हैं, आधिकारिक VAHAN आँकड़े नहीं।",
-uploadNote:"आपकी अपलोड की गई CSV जानकारी।",luxOnly:"केवल लक्जरी श्रेणी।"
-}
-};
-
-const luxuryBrands=["Mercedes-Benz","BMW","Audi","Porsche","Lexus","Jaguar","Land Rover","Volvo","Rolls-Royce","Bentley","Maserati","Ferrari","Lamborghini"];
-let lang="en",mode="all",data=[],demo=false;
-const $=id=>document.getElementById(id);
-const tr=k=>T[lang][k]||T.en[k];
-const fmt=n=>Number(n||0).toLocaleString("en-IN");
-const isLuxury=x=>luxuryBrands.some(b=>x.company.toLowerCase().includes(b.toLowerCase()))||/luxury|premium luxury/i.test(x.segment);
-
-function escapeHTML(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
-
-function setLanguage(v){
- lang=v;document.documentElement.lang=v;
- document.querySelectorAll("[data-t]").forEach(el=>el.textContent=tr(el.dataset.t));
- updateMode();fillFilters();render();
-}
-$("lang").addEventListener("change",e=>setLanguage(e.target.value));
-
-function setMode(v){
- mode=v;
- $("app").classList.toggle("luxury",v==="lux");
- $("allTab").classList.toggle("active",v==="all");
- $("luxTab").classList.toggle("active",v==="lux");
- updateMode();fillFilters();render();
-}
-function updateMode(){
- $("dashTitle").textContent=tr(mode==="lux"?"luxTitle":"allTitle");
- $("dashDesc").textContent=tr(mode==="lux"?"luxDesc":"allDesc");
-}
-
-function loadDemo(){
- demo=true;
- const raw=[
- ["Maruti Suzuki","Swift","Hatchback",1700,"2026-01-01","Andhra Pradesh"],
- ["Hyundai","Creta","SUV",1200,"2026-01-01","Telangana"],
- ["Tata Motors","Nexon","SUV",1400,"2026-02-01","Andhra Pradesh"],
- ["Mahindra","Scorpio","SUV",1100,"2026-02-01","Telangana"],
- ["Toyota","Innova","MUV",900,"2026-03-01","Karnataka"],
- ["Kia","Seltos","SUV",1000,"2026-03-01","Andhra Pradesh"],
- ["Honda","City","Sedan",700,"2026-04-01","Telangana"],
- ["MG Motor","Comet EV","Electric",500,"2026-04-01","Karnataka"],
- ["Mercedes-Benz","C-Class","Luxury",100,"2026-01-01","Telangana"],
- ["BMW","3 Series","Luxury",90,"2026-02-01","Karnataka"],
- ["Audi","Q3","Luxury",80,"2026-03-01","Andhra Pradesh"],
- ["Porsche","Macan","Luxury",25,"2026-04-01","Telangana"],
- ["Lexus","ES","Luxury",20,"2026-05-01","Karnataka"],
- ["Volvo","XC60","Luxury",35,"2026-05-01","Andhra Pradesh"]
- ];
- data=raw.map(r=>({company:r[0],model:r[1],segment:r[2],registrations:r[3],date:r[4],state:r[5]}));
- $("companyFilter").value="all";$("stateFilter").value="all";$("segmentFilter").value="all";
- fillFilters();render();
-}
-
-function fillFilters(){
- const filtered=mode==="lux"?data.filter(isLuxury):data;
- const configs=[
-  ["companyFilter","company","allCompanies"],
-  ["stateFilter","state","allStates"],
-  ["segmentFilter","segment","allSegments"]
- ];
- configs.forEach(([id,key,label])=>{
-  const el=$(id),old=el.value;
-  el.innerHTML=`<option value="all">${tr(label)}</option>`;
-  [...new Set(filtered.map(x=>x[key]).filter(Boolean))].sort().forEach(v=>el.add(new Option(v,v)));
-  el.value=[...el.options].some(o=>o.value===old)?old:"all";
- });
-}
-["companyFilter","stateFilter","segmentFilter"].forEach(id=>$(id).addEventListener("change",render));
-
-function render(){
- let list=mode==="lux"?data.filter(isLuxury):data.slice();
- list=list.filter(x=>
-  ($("companyFilter").value==="all"||x.company===$("companyFilter").value)&&
-  ($("stateFilter").value==="all"||x.state===$("stateFilter").value)&&
-  ($("segmentFilter").value==="all"||x.segment===$("segmentFilter").value)
- );
- const total=list.reduce((s,x)=>s+x.registrations,0);
- $("total").textContent=fmt(total);
- $("brands").textContent=new Set(list.map(x=>x.company)).size;
- $("states").textContent=new Set(list.map(x=>x.state)).size;
- $("models").textContent=new Set(list.map(x=>x.model)).size;
- $("rows").innerHTML=list.map(x=>`<tr><td>${escapeHTML(x.company)}</td><td>${escapeHTML(x.model)}</td><td>${escapeHTML(x.segment)}</td><td>${fmt(x.registrations)}</td><td>${escapeHTML(x.state)}</td><td>${escapeHTML(x.date)}</td></tr>`).join("");
- $("message").textContent=data.length?(demo?tr("demoNote"):tr("uploadNote")):tr("empty");
- chart("brandChart",list,"company");
- chart("segmentChart",list,"segment");
- chartMonthly(list);
-}
-
-function chart(id,list,key){
- const sums={};
- list.forEach(x=>sums[x[key]]=(sums[x[key]]||0)+x.registrations);
- const entries=Object.entries(sums).sort((a,b)=>b[1]-a[1]).slice(0,9);
- const max=Math.max(1,...entries.map(x=>x[1]));
- $(id).innerHTML=entries.map(([name,n])=>`
- <div class="bar-row"><div class="bar-label"><span>${escapeHTML(name)}</span><b>${fmt(n)}</b></div>
- <div class="bar"><div class="bar-fill" style="width:${n/max*100}%"></div></div></div>`).join("")||"—";
-}
-
-function chartMonthly(list){
- const sums={};
- list.forEach(x=>{if(x.date)sums[x.date.slice(0,7)]=(sums[x.date.slice(0,7)]||0)+x.registrations});
- const entries=Object.entries(sums).sort();
- const max=Math.max(1,...entries.map(x=>x[1]));
- $("monthlyChart").innerHTML=entries.map(([m,n])=>`
- <div class="bar-row"><div class="bar-label"><span>${escapeHTML(m)}</span><b>${fmt(n)}</b></div>
- <div class="bar"><div class="bar-fill" style="width:${n/max*100}%"></div></div></div>`).join("")||"—";
-}
-
-function parseCSV(text){
- const lines=text.replace(/^\uFEFF/,"").split(/\r?\n/).filter(x=>x.trim());
- function split(line){
-  const out=[];let val="",quoted=false;
-  for(let i=0;i<line.length;i++){
-   const c=line[i];
-   if(c==='"'&&line[i+1]==='"'&&quoted){val+='"';i++}
-   else if(c==='"')quoted=!quoted;
-   else if(c===","&&!quoted){out.push(val.trim());val=""}
-   else val+=c;
-  }
-  out.push(val.trim());return out;
- }
- if(lines.length<2)throw Error("CSV has no data rows.");
- const headers=split(lines[0]).map(x=>x.toLowerCase());
- ["company","model","segment","registrations","date","state"].forEach(k=>{
-  if(!headers.includes(k))throw Error("Missing CSV column: "+k);
- });
- return lines.slice(1).map(line=>{
-  const cells=split(line),obj={};
-  headers.forEach((h,i)=>obj[h]=cells[i]||"");
-  const n=Number(obj.registrations);
-  if(!obj.company||!obj.model||!Number.isFinite(n)||n<0)throw Error("Check company, model and registrations.");
-  return {...obj,registrations:n};
- });
-}
-
-$("file").addEventListener("change",async e=>{
- const f=e.target.files[0];if(!f)return;
- try{
-  data=parseCSV(await f.text());demo=false;mode="all";
-  $("companyFilter").value="all";$("stateFilter").value="all";$("segmentFilter").value="all";
-  setMode("all");
- }catch(err){alert(err.message)}
- e.target.value="";
+const menuBtn=document.getElementById('menuBtn');
+const navLinks=document.getElementById('navLinks');
+menuBtn.addEventListener('click',()=>navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('open')));
+document.getElementById('year').textContent=new Date().getFullYear();
+document.getElementById('contactForm').addEventListener('submit',e=>{
+ e.preventDefault();
+ const name=document.getElementById('name').value.trim();
+ const email=document.getElementById('email').value.trim();
+ const interest=document.getElementById('interest').value;
+ const message=document.getElementById('message').value.trim();
+ const subject=encodeURIComponent('SAAHO AUTO ÉLITE enquiry — '+interest);
+ const body=encodeURIComponent('Name: '+name+'\nEmail: '+email+'\nInterest: '+interest+'\n\nMessage:\n'+message);
+ document.getElementById('formNote').textContent='Opening your email app…';
+ window.location.href='mailto:YOUR-EMAIL@example.com?subject='+subject+'&body='+body;
 });
-
-function downloadSample(){
- const csv="company,model,segment,registrations,date,state,district,rto\nTata Motors,Nexon,SUV,1200,2026-10-01,Andhra Pradesh,Vijayawada,AP16\nMercedes-Benz,C-Class,Luxury,100,2026-10-01,Telangana,Hyderabad,TS09\n";
- const url=URL.createObjectURL(new Blob([csv],{type:"text/csv"}));
- const a=document.createElement("a");a.href=url;a.download="saaho-auto-sample.csv";a.click();URL.revokeObjectURL(url);
-}
-updateMode();render();
 </script>
 </body>
 </html>
+
 
 
 
