@@ -3,306 +3,338 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080b16">
 <title>Saaho Auto Intel</title>
 <style>
-:root {
-  --bg:#080d18; --panel:#111a2b; --text:#f3f6ff;
-  --muted:#9ba9c0; --blue:#3987ff; --border:#26344b;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap');
+:root{
+--bg:#080b16;--glass:rgba(255,255,255,.065);
+--line:rgba(255,255,255,.12);--text:#f4f6ff;
+--muted:#a2acc3;--accent:#6b8cff;--gold:#d9b66e;
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);
-font-family:Arial,sans-serif}
-header{padding:20px 5%;border-bottom:1px solid var(--border);
-display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.brand{font-size:23px;font-weight:800;color:#58a0ff}
-.brand span{color:white}
-select,button,input{padding:11px;border-radius:9px;
-border:1px solid var(--border);background:#17243a;color:white}
-button{background:var(--blue);border:0;cursor:pointer;font-weight:bold}
-button.secondary{background:#24334b}
-main{max-width:1150px;margin:auto;padding:22px 16px}
-h1{font-size:26px;margin-bottom:8px}
-.muted{color:var(--muted);line-height:1.6}
-.panel,.metric{background:var(--panel);border:1px solid var(--border);
-border-radius:14px;padding:18px;margin-bottom:17px}
-.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.metric small{color:var(--muted)}
-.metric strong{display:block;font-size:27px;margin-top:10px}
-.controls{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}
-.controls>*{flex:1;min-width:140px}
-.charts{display:grid;grid-template-columns:1fr 1fr;gap:15px}
-.bar-row{margin:14px 0}
-.bar-label{display:flex;justify-content:space-between;gap:10px;font-size:13px}
-.bar{height:10px;background:#263750;border-radius:20px;margin-top:7px;overflow:hidden}
-.bar div{height:100%;background:var(--blue);border-radius:20px}
-table{width:100%;border-collapse:collapse;font-size:13px}
-th,td{padding:12px 8px;text-align:left;border-bottom:1px solid var(--border)}
+body{margin:0;background:radial-gradient(ellipse at 15% 0%,#182858 0%,transparent 38%),radial-gradient(ellipse at 90% 30%,#28174c 0%,transparent 35%),var(--bg);color:var(--text);font-family:Inter,Arial,sans-serif;min-height:100vh}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:19px 5%;border-bottom:1px solid var(--line);background:rgba(8,11,22,.65);backdrop-filter:blur(20px);position:sticky;top:0;z-index:10}
+.logo{font-family:Outfit,sans-serif;font-size:22px;font-weight:800;letter-spacing:1px}
+.logo span{color:#83a4ff}
+select,input,button{font:inherit;color:var(--text);background:rgba(255,255,255,.08);border:1px solid var(--line);padding:12px;border-radius:11px}
+button{cursor:pointer;transition:.2s}
+button:hover{transform:translateY(-2px);background:rgba(107,140,255,.3)}
+main{max-width:1200px;margin:auto;padding:25px 17px}
+.glass{background:var(--glass);border:1px solid var(--line);border-radius:20px;padding:20px;backdrop-filter:blur(18px);box-shadow:0 15px 45px rgba(0,0,0,.16)}
+.hero{padding:28px;margin-bottom:18px;background:linear-gradient(120deg,rgba(54,92,180,.25),rgba(122,70,170,.12));}
+h1,h2,h3{font-family:Outfit,sans-serif}
+h1{font-size:clamp(25px,5vw,38px);margin:0 0 8px}
+h2{font-size:23px;margin-top:0}
+p{color:var(--muted);line-height:1.6}
+.tabs,.actions,.filters{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}
+.tabs button{flex:1;min-width:130px}
+.active{background:linear-gradient(120deg,#547fff,#895de0)!important;border-color:transparent}
+.luxury .active{background:linear-gradient(120deg,#96733a,#d9b66e)!important;color:#17120a}
+.luxury .hero{background:linear-gradient(120deg,rgba(174,132,54,.22),rgba(30,25,19,.35))}
+.luxury .logo span{color:var(--gold)}
+.luxury .metric strong,.luxury .bar-fill{color:var(--gold)}
+.metric-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin:17px 0}
+.metric small{color:var(--muted);font-size:12px}
+.metric strong{display:block;font-family:Outfit;font-size:27px;margin-top:12px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin:17px 0}
+.bar-row{margin:16px 0}
+.bar-label{display:flex;justify-content:space-between;font-size:13px;gap:8px}
+.bar{height:9px;background:rgba(255,255,255,.1);border-radius:20px;margin-top:8px;overflow:hidden}
+.bar-fill{height:100%;background:linear-gradient(90deg,#578aff,#a17bff);border-radius:20px}
+.luxury .bar-fill{background:linear-gradient(90deg,#92703a,#e5c27c)}
+table{width:100%;border-collapse:collapse;min-width:580px;font-size:13px}
+td,th{text-align:left;padding:13px 10px;border-bottom:1px solid var(--line)}
+th{color:#9fb7ff}
+.luxury th{color:var(--gold)}
 .table-wrap{overflow-x:auto}
-canvas{width:100%;height:210px}
-footer{text-align:center;color:var(--muted);padding:25px}
-@media(max-width:650px){
-.metrics{grid-template-columns:1fr 1fr}
-.charts{grid-template-columns:1fr}
-.metric strong{font-size:22px}
-h1{font-size:22px}
-}
+.note{font-size:12px;color:var(--muted)}
+.filters>*{flex:1;min-width:130px}
+footer{text-align:center;padding:25px;color:var(--muted);font-size:12px}
+#file{display:none}
+@media(max-width:750px){.metric-grid{grid-template-columns:1fr 1fr}.grid2{grid-template-columns:1fr}header{padding:15px}.metric strong{font-size:23px}}
 </style>
 </head>
 <body>
 <header>
-  <div class="brand">SAAHO <span>AUTO INTEL</span></div>
-  <select id="language" aria-label="Choose language">
-    <option value="en">Indian English</option>
-    <option value="te">తెలుగు</option>
-    <option value="hi">हिन्दी</option>
-  </select>
+ <div class="logo">SAAHO <span>AUTO INTEL</span></div>
+ <select id="lang" aria-label="Language">
+  <option value="en">Indian English</option>
+  <option value="te">తెలుగు</option>
+  <option value="hi">हिन्दी</option>
+ </select>
 </header>
+<main id="app">
+ <section class="glass hero">
+  <h1 data-t="title">Automobile Market Intelligence</h1>
+  <p data-t="intro">Explore India's automobile registration market, brands and trends.</p>
+  <div class="actions">
+   <button onclick="loadDemo()" data-t="demo">Load Demo Data</button>
+   <button onclick="document.getElementById('file').click()" data-t="upload">Upload CSV</button>
+   <input id="file" type="file" accept=".csv,text/csv">
+   <button onclick="downloadSample()" data-t="sample">Download Sample CSV</button>
+  </div>
+ </section>
 
-<main>
-  <section class="panel">
-    <h1 data-i="title">Automobile Market Intelligence</h1>
-    <p class="muted" data-i="intro">Understand vehicle registration trends across India.</p>
-    <div class="controls">
-      <button onclick="loadDemo()" data-i="demo">Load Demo Data</button>
-      <label class="secondary" style="padding:10px;border-radius:9px;text-align:center">
-        <span data-i="upload">Upload CSV</span>
-        <input id="file" type="file" accept=".csv,text/csv" style="display:none">
-      </label>
-      <button class="secondary" onclick="downloadSample()" data-i="sample">Download Sample CSV</button>
-    </div>
-    <p class="muted" data-i="csvhelp">CSV columns: company, registrations, segment, model, date, state, district, rto.</p>
-  </section>
+ <div class="tabs">
+  <button id="allTab" class="active" onclick="setMode('all')" data-t="allcars">All Cars Dashboard</button>
+  <button id="luxTab" onclick="setMode('lux')" data-t="luxcars">Luxury Cars Dashboard</button>
+ </div>
 
-  <section class="controls">
-    <select id="companyFilter" aria-label="Company filter">
-      <option value="all">All companies</option>
-    </select>
-    <select id="stateFilter" aria-label="State filter">
-      <option value="all">All states</option>
-    </select>
-  </section>
+ <section class="glass">
+  <h2 id="dashTitle">All Cars Dashboard</h2>
+  <p id="dashDesc">Market overview across all car categories.</p>
+  <div class="filters">
+   <select id="companyFilter" aria-label="Company filter"><option value="all">All companies</option></select>
+   <select id="stateFilter" aria-label="State filter"><option value="all">All states</option></select>
+   <select id="segmentFilter" aria-label="Segment filter"><option value="all">All segments</option></select>
+  </div>
+ </section>
 
-  <section class="metrics">
-    <div class="metric"><small data-i="total">Total Vehicles Registered</small><strong id="total">0</strong></div>
-    <div class="metric"><small data-i="companies">Companies</small><strong id="companies">0</strong></div>
-    <div class="metric"><small data-i="states">States</small><strong id="states">0</strong></div>
-  </section>
+ <section class="metric-grid">
+  <div class="glass metric"><small data-t="total">Total registrations</small><strong id="total">0</strong></div>
+  <div class="glass metric"><small data-t="brands">Brands</small><strong id="brands">0</strong></div>
+  <div class="glass metric"><small data-t="states">States</small><strong id="states">0</strong></div>
+  <div class="glass metric"><small data-t="models">Models</small><strong id="models">0</strong></div>
+ </section>
 
-  <section class="charts">
-    <div class="panel">
-      <h3 data-i="share">Company Market Share</h3>
-      <div id="companyChart"></div>
-    </div>
-    <div class="panel">
-      <h3 data-i="trend">Monthly Registration Trend</h3>
-      <canvas id="trendChart" width="600" height="230"></canvas>
-    </div>
-  </section>
+ <section class="grid2">
+  <div class="glass">
+   <h2 data-t="share">Brand Market Share</h2>
+   <div id="brandChart"></div>
+  </div>
+  <div class="glass">
+   <h2 data-t="segment">Vehicle Segment Breakdown</h2>
+   <div id="segmentChart"></div>
+  </div>
+ </section>
 
-  <section class="panel">
-    <h3 data-i="tabletitle">Registration Details</h3>
-    <div class="table-wrap">
-      <table>
-        <thead><tr>
-          <th data-i="company">Company</th>
-          <th data-i="model">Model</th>
-          <th data-i="registrations">Registrations</th>
-          <th data-i="state">State</th>
-          <th data-i="date">Date</th>
-        </tr></thead>
-        <tbody id="rows"></tbody>
-      </table>
-    </div>
-    <p id="notice" class="muted"></p>
-  </section>
+ <section class="glass">
+  <h2 data-t="monthly">Monthly Registration Trend</h2>
+  <div id="monthlyChart"></div>
+ </section>
+
+ <section class="glass" style="margin-top:17px">
+  <h2 data-t="details">Vehicle Registration Details</h2>
+  <div class="table-wrap">
+   <table>
+    <thead><tr>
+     <th data-t="brand">Brand</th><th data-t="model">Model</th>
+     <th data-t="segmentName">Segment</th><th data-t="registrations">Registrations</th>
+     <th data-t="stateName">State</th><th data-t="date">Date</th>
+    </tr></thead>
+    <tbody id="rows"></tbody>
+   </table>
+  </div>
+  <p id="message" class="note">Load demo data or upload your CSV file to begin.</p>
+ </section>
 </main>
-<footer>Saaho Auto Intel · Automobile Market Intelligence · India</footer>
+<footer>Saaho Auto Intel · India Automobile Market Intelligence</footer>
 
 <script>
-const translations = {
+const T={
 en:{
-title:"Automobile Market Intelligence",
-intro:"Understand vehicle registration trends across India.",
+title:"Automobile Market Intelligence",intro:"Explore India's automobile registration market, brands and trends.",
 demo:"Load Demo Data",upload:"Upload CSV",sample:"Download Sample CSV",
-csvhelp:"CSV columns: company, registrations, segment, model, date, state, district, rto.",
-total:"Total Vehicles Registered",companies:"Companies",states:"States",
-share:"Company Market Share",trend:"Monthly Registration Trend",
-tabletitle:"Registration Details",company:"Company",model:"Model",
-registrations:"Registrations",state:"State",date:"Date",
-allCompanies:"All companies",allStates:"All states",
-empty:"Load demo data or upload a CSV file to begin.",
-demoNote:"Demo data only — not official VAHAN statistics.",
-filterNote:"Showing filtered records."
+allcars:"All Cars Dashboard",luxcars:"Luxury Cars Dashboard",
+total:"Total registrations",brands:"Brands",states:"States",models:"Models",
+share:"Brand Market Share",segment:"Vehicle Segment Breakdown",
+monthly:"Monthly Registration Trend",details:"Vehicle Registration Details",
+brand:"Brand",model:"Model",segmentName:"Segment",registrations:"Registrations",stateName:"State",date:"Date",
+all:"All",allCompanies:"All companies",allStates:"All states",allSegments:"All segments",
+allTitle:"All Cars Dashboard",luxTitle:"Luxury Cars Dashboard",
+allDesc:"Market overview across all car categories.",luxDesc:"Premium and luxury automobile market overview.",
+empty:"No data available. Load demo data or upload a CSV file.",
+demoNote:"Demo figures are illustrative only and are not official VAHAN statistics.",
+uploadNote:"Uploaded CSV data. Figures depend on the data supplied.",
+luxOnly:"Luxury segment only."
 },
 te:{
-title:"ఆటోమొబైల్ మార్కెట్ సమాచారం",
-intro:"భారతదేశంలోని వాహన రిజిస్ట్రేషన్ వివరాలను తెలుసుకోండి.",
-demo:"డెమో డేటా చూపించు",upload:"CSV ఫైల్ అప్‌లోడ్",
-sample:"నమూనా CSV డౌన్‌లోడ్",
-csvhelp:"CSV కాలమ్స్: company, registrations, segment, model, date, state, district, rto.",
-total:"మొత్తం నమోదైన వాహనాలు",companies:"కంపెనీలు",states:"రాష్ట్రాలు",
-share:"కంపెనీల మార్కెట్ వాటా",trend:"నెలవారీ రిజిస్ట్రేషన్ ట్రెండ్",
-tabletitle:"రిజిస్ట్రేషన్ వివరాలు",company:"కంపెనీ",model:"మోడల్",
-registrations:"రిజిస్ట్రేషన్లు",state:"రాష్ట్రం",date:"తేదీ",
-allCompanies:"అన్ని కంపెనీలు",allStates:"అన్ని రాష్ట్రాలు",
-empty:"ప్రారంభించడానికి డెమో డేటా లోడ్ చేయండి లేదా CSV అప్‌లోడ్ చేయండి.",
-demoNote:"ఇది నమూనా డేటా మాత్రమే — అధికారిక VAHAN గణాంకాలు కావు.",
-filterNote:"ఎంచుకున్న రికార్డులు చూపిస్తున్నాం."
+title:"ఆటోమొబైల్ మార్కెట్ సమాచారం",intro:"భారతదేశ వాహన రిజిస్ట్రేషన్లు, బ్రాండ్లు మరియు ట్రెండ్స్ తెలుసుకోండి.",
+demo:"డెమో డేటా లోడ్ చేయి",upload:"CSV అప్‌లోడ్",sample:"నమూనా CSV డౌన్‌లోడ్",
+allcars:"అన్ని కార్ల డాష్‌బోర్డ్",luxcars:"లగ్జరీ కార్ల డాష్‌బోర్డ్",
+total:"మొత్తం రిజిస్ట్రేషన్లు",brands:"బ్రాండ్లు",states:"రాష్ట్రాలు",models:"మోడళ్లు",
+share:"బ్రాండ్ మార్కెట్ వాటా",segment:"వాహన విభాగాల వివరాలు",
+monthly:"నెలవారీ రిజిస్ట్రేషన్లు",details:"వాహన రిజిస్ట్రేషన్ వివరాలు",
+brand:"బ్రాండ్",model:"మోడల్",segmentName:"విభాగం",registrations:"రిజిస్ట్రేషన్లు",stateName:"రాష్ట్రం",date:"తేదీ",
+all:"అన్ని",allCompanies:"అన్ని కంపెనీలు",allStates:"అన్ని రాష్ట్రాలు",allSegments:"అన్ని విభాగాలు",
+allTitle:"అన్ని కార్ల డాష్‌బోర్డ్",luxTitle:"లగ్జరీ కార్ల డాష్‌బోర్డ్",
+allDesc:"అన్ని కార్ల విభాగాల మార్కెట్ సమాచారం.",luxDesc:"ప్రీమియం మరియు లగ్జరీ కార్ల మార్కెట్ సమాచారం.",
+empty:"డేటా లేదు. డెమో డేటా లోడ్ చేయండి లేదా CSV అప్‌లోడ్ చేయండి.",
+demoNote:"ఇవి నమూనా గణాంకాలు మాత్రమే; అధికారిక VAHAN గణాంకాలు కావు.",
+uploadNote:"మీరు అప్‌లోడ్ చేసిన CSV డేటా.",luxOnly:"లగ్జరీ విభాగం మాత్రమే."
 },
 hi:{
-title:"ऑटोमोबाइल मार्केट इंटेलिजेंस",
-intro:"भारत में वाहन पंजीकरण के रुझानों को समझें।",
-demo:"डेमो डेटा लोड करें",upload:"CSV अपलोड करें",
-sample:"नमूना CSV डाउनलोड करें",
-csvhelp:"CSV कॉलम: company, registrations, segment, model, date, state, district, rto.",
-total:"कुल पंजीकृत वाहन",companies:"कंपनियाँ",states:"राज्य",
-share:"कंपनी की बाजार हिस्सेदारी",trend:"मासिक पंजीकरण रुझान",
-tabletitle:"पंजीकरण विवरण",company:"कंपनी",model:"मॉडल",
-registrations:"पंजीकरण",state:"राज्य",date:"तारीख",
-allCompanies:"सभी कंपनियाँ",allStates:"सभी राज्य",
-empty:"शुरू करने के लिए डेमो डेटा लोड करें या CSV अपलोड करें।",
-demoNote:"यह केवल डेमो डेटा है — आधिकारिक VAHAN आँकड़े नहीं।",
-filterNote:"फ़िल्टर किए गए रिकॉर्ड दिखाए जा रहे हैं।"
+title:"ऑटोमोबाइल मार्केट इंटेलिजेंस",intro:"भारत के वाहन पंजीकरण, ब्रांड और बाजार के रुझान देखें।",
+demo:"डेमो डेटा लोड करें",upload:"CSV अपलोड करें",sample:"नमूना CSV डाउनलोड करें",
+allcars:"सभी कारों का डैशबोर्ड",luxcars:"लक्जरी कारों का डैशबोर्ड",
+total:"कुल पंजीकरण",brands:"ब्रांड",states:"राज्य",models:"मॉडल",
+share:"ब्रांड बाजार हिस्सेदारी",segment:"वाहन श्रेणी विवरण",
+monthly:"मासिक पंजीकरण रुझान",details:"वाहन पंजीकरण विवरण",
+brand:"ब्रांड",model:"मॉडल",segmentName:"श्रेणी",registrations:"पंजीकरण",stateName:"राज्य",date:"तारीख",
+all:"सभी",allCompanies:"सभी कंपनियाँ",allStates:"सभी राज्य",allSegments:"सभी श्रेणियाँ",
+allTitle:"सभी कारों का डैशबोर्ड",luxTitle:"लक्जरी कारों का डैशबोर्ड",
+allDesc:"सभी कार श्रेणियों का बाजार विवरण।",luxDesc:"प्रीमियम और लक्जरी कार बाजार का विवरण।",
+empty:"डेटा उपलब्ध नहीं है। डेमो डेटा लोड करें या CSV अपलोड करें।",
+demoNote:"ये केवल डेमो आँकड़े हैं, आधिकारिक VAHAN आँकड़े नहीं।",
+uploadNote:"आपकी अपलोड की गई CSV जानकारी।",luxOnly:"केवल लक्जरी श्रेणी।"
 }
 };
 
-let data=[];
-let isDemo=false;
-let lang="en";
+const luxuryBrands=["Mercedes-Benz","BMW","Audi","Porsche","Lexus","Jaguar","Land Rover","Volvo","Rolls-Royce","Bentley","Maserati","Ferrari","Lamborghini"];
+let lang="en",mode="all",data=[],demo=false;
 const $=id=>document.getElementById(id);
-const number=n=>Number(n||0).toLocaleString("en-IN");
+const tr=k=>T[lang][k]||T.en[k];
+const fmt=n=>Number(n||0).toLocaleString("en-IN");
+const isLuxury=x=>luxuryBrands.some(b=>x.company.toLowerCase().includes(b.toLowerCase()))||/luxury|premium luxury/i.test(x.segment);
 
-function setLanguage(value){
-  lang=value;
-  document.documentElement.lang=value;
-  document.querySelectorAll("[data-i]").forEach(el=>{
-    const key=el.dataset.i;
-    el.textContent=translations[value][key]||translations.en[key];
-  });
-  fillFilters();
-  render();
+function escapeHTML(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+
+function setLanguage(v){
+ lang=v;document.documentElement.lang=v;
+ document.querySelectorAll("[data-t]").forEach(el=>el.textContent=tr(el.dataset.t));
+ updateMode();fillFilters();render();
 }
-$("language").addEventListener("change",e=>setLanguage(e.target.value));
+$("lang").addEventListener("change",e=>setLanguage(e.target.value));
+
+function setMode(v){
+ mode=v;
+ $("app").classList.toggle("luxury",v==="lux");
+ $("allTab").classList.toggle("active",v==="all");
+ $("luxTab").classList.toggle("active",v==="lux");
+ updateMode();fillFilters();render();
+}
+function updateMode(){
+ $("dashTitle").textContent=tr(mode==="lux"?"luxTitle":"allTitle");
+ $("dashDesc").textContent=tr(mode==="lux"?"luxDesc":"allDesc");
+}
 
 function loadDemo(){
-  isDemo=true;
-  data=[
-    ["Tata Motors",1200,"Passenger Vehicle","Nexon","2026-01-01","Andhra Pradesh"],
-    ["Maruti Suzuki",1800,"Passenger Vehicle","Swift","2026-01-01","Telangana"],
-    ["Hyundai",900,"Passenger Vehicle","Creta","2026-02-01","Karnataka"],
-    ["Mahindra",1100,"Passenger Vehicle","Scorpio","2026-02-01","Andhra Pradesh"],
-    ["Tata Motors",1400,"Passenger Vehicle","Punch","2026-03-01","Telangana"],
-    ["Maruti Suzuki",1600,"Passenger Vehicle","Baleno","2026-03-01","Andhra Pradesh"],
-    ["Hyundai",1000,"Passenger Vehicle","Venue","2026-04-01","Karnataka"],
-    ["Mahindra",1300,"Passenger Vehicle","XUV","2026-04-01","Telangana"]
-  ].map(r=>({company:r[0],registrations:r[1],segment:r[2],model:r[3],date:r[4],state:r[5]}));
-  fillFilters();render();
+ demo=true;
+ const raw=[
+ ["Maruti Suzuki","Swift","Hatchback",1700,"2026-01-01","Andhra Pradesh"],
+ ["Hyundai","Creta","SUV",1200,"2026-01-01","Telangana"],
+ ["Tata Motors","Nexon","SUV",1400,"2026-02-01","Andhra Pradesh"],
+ ["Mahindra","Scorpio","SUV",1100,"2026-02-01","Telangana"],
+ ["Toyota","Innova","MUV",900,"2026-03-01","Karnataka"],
+ ["Kia","Seltos","SUV",1000,"2026-03-01","Andhra Pradesh"],
+ ["Honda","City","Sedan",700,"2026-04-01","Telangana"],
+ ["MG Motor","Comet EV","Electric",500,"2026-04-01","Karnataka"],
+ ["Mercedes-Benz","C-Class","Luxury",100,"2026-01-01","Telangana"],
+ ["BMW","3 Series","Luxury",90,"2026-02-01","Karnataka"],
+ ["Audi","Q3","Luxury",80,"2026-03-01","Andhra Pradesh"],
+ ["Porsche","Macan","Luxury",25,"2026-04-01","Telangana"],
+ ["Lexus","ES","Luxury",20,"2026-05-01","Karnataka"],
+ ["Volvo","XC60","Luxury",35,"2026-05-01","Andhra Pradesh"]
+ ];
+ data=raw.map(r=>({company:r[0],model:r[1],segment:r[2],registrations:r[3],date:r[4],state:r[5]}));
+ $("companyFilter").value="all";$("stateFilter").value="all";$("segmentFilter").value="all";
+ fillFilters();render();
 }
 
 function fillFilters(){
-  const cf=$("companyFilter"),sf=$("stateFilter");
-  const oldC=cf.value||"all",oldS=sf.value||"all";
-  cf.innerHTML=`<option value="all">${translations[lang].allCompanies}</option>`;
-  sf.innerHTML=`<option value="all">${translations[lang].allStates}</option>`;
-  [...new Set(data.map(x=>x.company))].sort().forEach(x=>cf.add(new Option(x,x)));
-  [...new Set(data.map(x=>x.state))].sort().forEach(x=>sf.add(new Option(x,x)));
-  cf.value=[...cf.options].some(x=>x.value===oldC)?oldC:"all";
-  sf.value=[...sf.options].some(x=>x.value===oldS)?oldS:"all";
+ const filtered=mode==="lux"?data.filter(isLuxury):data;
+ const configs=[
+  ["companyFilter","company","allCompanies"],
+  ["stateFilter","state","allStates"],
+  ["segmentFilter","segment","allSegments"]
+ ];
+ configs.forEach(([id,key,label])=>{
+  const el=$(id),old=el.value;
+  el.innerHTML=`<option value="all">${tr(label)}</option>`;
+  [...new Set(filtered.map(x=>x[key]).filter(Boolean))].sort().forEach(v=>el.add(new Option(v,v)));
+  el.value=[...el.options].some(o=>o.value===old)?old:"all";
+ });
 }
-$("companyFilter").addEventListener("change",render);
-$("stateFilter").addEventListener("change",render);
+["companyFilter","stateFilter","segmentFilter"].forEach(id=>$(id).addEventListener("change",render));
 
 function render(){
-  const filtered=data.filter(x=>
-    ($("companyFilter").value==="all"||x.company===$("companyFilter").value)&&
-    ($("stateFilter").value==="all"||x.state===$("stateFilter").value)
-  );
-  const total=filtered.reduce((s,x)=>s+x.registrations,0);
-  $("total").textContent=number(total);
-  $("companies").textContent=new Set(filtered.map(x=>x.company)).size;
-  $("states").textContent=new Set(filtered.map(x=>x.state)).size;
-  $("rows").innerHTML=filtered.map(x=>`<tr>
-    <td>${escapeHTML(x.company)}</td><td>${escapeHTML(x.model)}</td>
-    <td>${number(x.registrations)}</td><td>${escapeHTML(x.state)}</td>
-    <td>${escapeHTML(x.date)}</td></tr>`).join("");
-  $("notice").textContent=data.length?(isDemo?translations[lang].demoNote:translations[lang].filterNote):translations[lang].empty;
-  const sums={};
-  filtered.forEach(x=>sums[x.company]=(sums[x.company]||0)+x.registrations);
-  const max=Math.max(1,...Object.values(sums));
-  $("companyChart").innerHTML=Object.entries(sums).sort((a,b)=>b[1]-a[1]).map(([name,n])=>`
-    <div class="bar-row"><div class="bar-label"><span>${escapeHTML(name)}</span><b>${number(n)}</b></div>
-    <div class="bar"><div style="width:${n/max*100}%"></div></div></div>`).join("")||"—";
-  drawTrend(filtered);
+ let list=mode==="lux"?data.filter(isLuxury):data.slice();
+ list=list.filter(x=>
+  ($("companyFilter").value==="all"||x.company===$("companyFilter").value)&&
+  ($("stateFilter").value==="all"||x.state===$("stateFilter").value)&&
+  ($("segmentFilter").value==="all"||x.segment===$("segmentFilter").value)
+ );
+ const total=list.reduce((s,x)=>s+x.registrations,0);
+ $("total").textContent=fmt(total);
+ $("brands").textContent=new Set(list.map(x=>x.company)).size;
+ $("states").textContent=new Set(list.map(x=>x.state)).size;
+ $("models").textContent=new Set(list.map(x=>x.model)).size;
+ $("rows").innerHTML=list.map(x=>`<tr><td>${escapeHTML(x.company)}</td><td>${escapeHTML(x.model)}</td><td>${escapeHTML(x.segment)}</td><td>${fmt(x.registrations)}</td><td>${escapeHTML(x.state)}</td><td>${escapeHTML(x.date)}</td></tr>`).join("");
+ $("message").textContent=data.length?(demo?tr("demoNote"):tr("uploadNote")):tr("empty");
+ chart("brandChart",list,"company");
+ chart("segmentChart",list,"segment");
+ chartMonthly(list);
 }
 
-function drawTrend(list){
-  const c=$("trendChart"),ctx=c.getContext("2d");
-  ctx.clearRect(0,0,c.width,c.height);
-  const sums={};
-  list.forEach(x=>{const k=(x.date||"").slice(0,7);if(k)sums[k]=(sums[k]||0)+x.registrations});
-  const entries=Object.entries(sums).sort();
-  if(!entries.length)return;
-  const max=Math.max(1,...entries.map(x=>x[1]));
-  ctx.strokeStyle="#3987ff";ctx.lineWidth=4;ctx.beginPath();
-  entries.forEach(([month,n],i)=>{
-    const x=45+i*(c.width-85)/Math.max(1,entries.length-1);
-    const y=c.height-35-(n/max)*(c.height-75);
-    if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);
-    ctx.fillStyle="#ffffff";ctx.fillText(month,x-22,c.height-12);
-  });
-  ctx.stroke();
+function chart(id,list,key){
+ const sums={};
+ list.forEach(x=>sums[x[key]]=(sums[x[key]]||0)+x.registrations);
+ const entries=Object.entries(sums).sort((a,b)=>b[1]-a[1]).slice(0,9);
+ const max=Math.max(1,...entries.map(x=>x[1]));
+ $(id).innerHTML=entries.map(([name,n])=>`
+ <div class="bar-row"><div class="bar-label"><span>${escapeHTML(name)}</span><b>${fmt(n)}</b></div>
+ <div class="bar"><div class="bar-fill" style="width:${n/max*100}%"></div></div></div>`).join("")||"—";
 }
 
-function escapeHTML(s){
-  return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function chartMonthly(list){
+ const sums={};
+ list.forEach(x=>{if(x.date)sums[x.date.slice(0,7)]=(sums[x.date.slice(0,7)]||0)+x.registrations});
+ const entries=Object.entries(sums).sort();
+ const max=Math.max(1,...entries.map(x=>x[1]));
+ $("monthlyChart").innerHTML=entries.map(([m,n])=>`
+ <div class="bar-row"><div class="bar-label"><span>${escapeHTML(m)}</span><b>${fmt(n)}</b></div>
+ <div class="bar"><div class="bar-fill" style="width:${n/max*100}%"></div></div></div>`).join("")||"—";
 }
 
 function parseCSV(text){
-  const lines=text.replace(/^\uFEFF/,"").split(/\r?\n/).filter(x=>x.trim());
-  const split=line=>{
-    const out=[];let value="",quoted=false;
-    for(let i=0;i<line.length;i++){
-      const c=line[i];
-      if(c==='"'&&line[i+1]==='"'&&quoted){value+='"';i++}
-      else if(c==='"')quoted=!quoted;
-      else if(c===","&&!quoted){out.push(value.trim());value=""}
-      else value+=c;
-    }
-    out.push(value.trim());return out;
-  };
-  if(lines.length<2)throw Error("CSV has no data rows.");
-  const headers=split(lines[0]).map(x=>x.toLowerCase());
-  const required=["company","registrations","segment","model","date","state"];
-  required.forEach(k=>{if(!headers.includes(k))throw Error("Missing CSV column: "+k)});
-  return lines.slice(1).map(line=>{
-    const cells=split(line),obj={};
-    headers.forEach((h,i)=>obj[h]=cells[i]||"");
-    const n=Number(obj.registrations);
-    if(!obj.company||!Number.isFinite(n)||n<0)throw Error("Check company and registrations values.");
-    return {...obj,registrations:n};
-  });
+ const lines=text.replace(/^\uFEFF/,"").split(/\r?\n/).filter(x=>x.trim());
+ function split(line){
+  const out=[];let val="",quoted=false;
+  for(let i=0;i<line.length;i++){
+   const c=line[i];
+   if(c==='"'&&line[i+1]==='"'&&quoted){val+='"';i++}
+   else if(c==='"')quoted=!quoted;
+   else if(c===","&&!quoted){out.push(val.trim());val=""}
+   else val+=c;
+  }
+  out.push(val.trim());return out;
+ }
+ if(lines.length<2)throw Error("CSV has no data rows.");
+ const headers=split(lines[0]).map(x=>x.toLowerCase());
+ ["company","model","segment","registrations","date","state"].forEach(k=>{
+  if(!headers.includes(k))throw Error("Missing CSV column: "+k);
+ });
+ return lines.slice(1).map(line=>{
+  const cells=split(line),obj={};
+  headers.forEach((h,i)=>obj[h]=cells[i]||"");
+  const n=Number(obj.registrations);
+  if(!obj.company||!obj.model||!Number.isFinite(n)||n<0)throw Error("Check company, model and registrations.");
+  return {...obj,registrations:n};
+ });
 }
 
 $("file").addEventListener("change",async e=>{
-  const file=e.target.files[0];if(!file)return;
-  try{
-    data=parseCSV(await file.text());isDemo=false;
-    $("companyFilter").value="all";$("stateFilter").value="all";
-    fillFilters();render();
-  }catch(err){alert(err.message)}
-  e.target.value="";
+ const f=e.target.files[0];if(!f)return;
+ try{
+  data=parseCSV(await f.text());demo=false;mode="all";
+  $("companyFilter").value="all";$("stateFilter").value="all";$("segmentFilter").value="all";
+  setMode("all");
+ }catch(err){alert(err.message)}
+ e.target.value="";
 });
 
 function downloadSample(){
-  const csv="company,registrations,segment,model,date,state,district,rto\nTata Motors,1200,Passenger Vehicle,Nexon,2026-10-01,Andhra Pradesh,Vijayawada,AP16\n";
-  const a=document.createElement("a");
-  a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv"}));
-  a.download="saaho-sample.csv";a.click();URL.revokeObjectURL(a.href);
+ const csv="company,model,segment,registrations,date,state,district,rto\nTata Motors,Nexon,SUV,1200,2026-10-01,Andhra Pradesh,Vijayawada,AP16\nMercedes-Benz,C-Class,Luxury,100,2026-10-01,Telangana,Hyderabad,TS09\n";
+ const url=URL.createObjectURL(new Blob([csv],{type:"text/csv"}));
+ const a=document.createElement("a");a.href=url;a.download="saaho-auto-sample.csv";a.click();URL.revokeObjectURL(url);
 }
-render();
+updateMode();render();
 </script>
 </body>
 </html>
+
+
 
 
